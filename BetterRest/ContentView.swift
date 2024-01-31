@@ -40,7 +40,12 @@ struct ContentView: View {
                 .font(.headline)
                 
                 Section("Daily coffee intake") {
-                    Stepper("^[\(coffeeAmount) cup](inflect: true)", value: $coffeeAmount, in: 0...20, step: 1)
+                    Picker("^[\(coffeeAmount + 1) cup](inflect: true)", selection: $coffeeAmount) {
+                        ForEach(1..<21) {
+                            Text($0, format: .number)
+                        }
+                    }
+                    .pickerStyle(.menu)
                 }
                 .font(.headline)
             }
