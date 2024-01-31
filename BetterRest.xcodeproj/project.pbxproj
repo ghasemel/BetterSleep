@@ -11,6 +11,9 @@
 		737B60EF2B6A0B3700DE3148 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B60EE2B6A0B3700DE3148 /* ContentView.swift */; };
 		737B60F12B6A0B3800DE3148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737B60F02B6A0B3800DE3148 /* Assets.xcassets */; };
 		737B60F42B6A0B3800DE3148 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737B60F32B6A0B3800DE3148 /* Preview Assets.xcassets */; };
+		737B60FD2B6A0FA600DE3148 /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 737B60FC2B6A0FA600DE3148 /* SleepCalculator.mlmodel */; };
+		737B60FF2B6A166900DE3148 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 737B60FE2B6A166900DE3148 /* README.md */; };
+		737B61012B6A167E00DE3148 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 737B61002B6A167E00DE3148 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		737B60EE2B6A0B3700DE3148 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		737B60F02B6A0B3800DE3148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		737B60F32B6A0B3800DE3148 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		737B60FC2B6A0FA600DE3148 /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SleepCalculator.mlmodel; sourceTree = "<group>"; };
+		737B60FE2B6A166900DE3148 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		737B61002B6A167E00DE3148 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,8 @@
 		737B60E02B6A0B3700DE3148 = {
 			isa = PBXGroup;
 			children = (
+				737B61002B6A167E00DE3148 /* .gitignore */,
+				737B60FE2B6A166900DE3148 /* README.md */,
 				737B60EB2B6A0B3700DE3148 /* BetterRest */,
 				737B60EA2B6A0B3700DE3148 /* Products */,
 			);
@@ -53,6 +61,7 @@
 			children = (
 				737B60EC2B6A0B3700DE3148 /* BetterRestApp.swift */,
 				737B60EE2B6A0B3700DE3148 /* ContentView.swift */,
+				737B60FC2B6A0FA600DE3148 /* SleepCalculator.mlmodel */,
 				737B60F02B6A0B3800DE3148 /* Assets.xcassets */,
 				737B60F22B6A0B3800DE3148 /* Preview Content */,
 			);
@@ -125,6 +134,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				737B61012B6A167E00DE3148 /* .gitignore in Resources */,
+				737B60FF2B6A166900DE3148 /* README.md in Resources */,
 				737B60F42B6A0B3800DE3148 /* Preview Assets.xcassets in Resources */,
 				737B60F12B6A0B3800DE3148 /* Assets.xcassets in Resources */,
 			);
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				737B60EF2B6A0B3700DE3148 /* ContentView.swift in Sources */,
+				737B60FD2B6A0FA600DE3148 /* SleepCalculator.mlmodel in Sources */,
 				737B60ED2B6A0B3700DE3148 /* BetterRestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
