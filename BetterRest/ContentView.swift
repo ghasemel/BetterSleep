@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var wakeUp = defaultWakeTime
-    @State private var sleepAmount = 8.0
+    @State private var sleepAmount = 8.0 
     @State private var coffeeAmount = 1
     
     @State private var alertTitle = ""
@@ -26,49 +26,54 @@ struct ContentView: View {
     var body: some View {
         
         NavigationStack{
-            
-            
-            Form {
-                Section("When do you want to wake up?") {
-                    DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
-                        .labelsHidden()
-                }
-                .font(.headline)
+            ZStack {
                 
-                Section("Desired amount of sleep") {
-                    Stepper("\(sleepAmount.formatted()) ", value: $sleepAmount, in: 4...12, step: 0.25)
-                }
-                .font(.headline)
+                RadialGradient(stops: [
+                    .init(color: .red, location: 0.3),
+                    .init(color: .blue, location: 0.3),
+                ], center: .top, startRadius: 100, endRadius: 700)
+                    .ignoresSafeArea()
                 
-                Section("Daily coffee intake") {
-                    Picker("Number of cups", selection: $coffeeAmount) {
-                        ForEach(1..<21) {
-                            Text($0, format: .number)
-                        }
+                Form {
+                    Section("When do you want to wake up?") {
+                        DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
+                            .labelsHidden()
+                            .onChange(of: wakeUp, calculateBedtime)
                     }
-                    .pickerStyle(.menu)
+                    .font(.headline)
+                    
+                    Section("Desired amount of sleep") {
+                        Stepper("\(sleepAmount.formatted()) ", value: $sleepAmount, in: 4...12, step: 0.25)
+                            .onChange(of: sleepAmount, calculateBedtime)
+                    }
+                    .font(.headline)
+                    
+                    Section("Daily coffee intake") {
+                        Picker("Number of cups", selection: $coffeeAmount) {
+                            ForEach(0..<11) {
+                                Text($0, format: .number)
+                            }
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        .onChange(of: coffeeAmount, calculateBedtime)
+                    }
+                    
+                    
+                    Section("Your ideal bedtime is") {
+                        // showing the result
+                        Text("\(alertTitle)")
+                    }
+                    .font(.title)
+                    .frame(maxWidth: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    
+                    
                 }
-                
-                Button("Calculate") {
+                .font(.headline)
+                .navigationTitle("BetterRest")
+                .onAppear {
                     calculateBedtime()
                 }
-                .buttonStyle(.borderedProminent)
-                .frame(maxWidth: .infinity, alignment: .center)
-                
-                
-                Section("Result") {
-                    // showing the result
-                    Text("\(alertTitle)")
-                }
-                .font(.title)
-                .frame(maxWidth: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                
-                
             }
-            .font(.headline)
-            .navigationTitle("BetterRest")
-            
-            
         }
         
     }
@@ -86,12 +91,10 @@ struct ContentView: View {
             
             let sleepTime = wakeUp - prediction.actualSleep
             
-            alertTitle = "Your ideal bedtime is \(sleepTime.formatted(date: .omitted, time: .shortened))"
+            alertTitle = "\(sleepTime.formatted(date: .omitted, time: .shortened))"
         } catch {
             alertTitle = "Error, Sorry, there was a problem calculating your bedtime."
         }
-        
-        //showAlert = true
     }
 }
 
